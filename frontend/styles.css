@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Century+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Century Gothic", sans-serif;
+    background-image: url('img/back.png');
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 1000px;
+}
+
+.left-panel {
+    width: 40%;
+    padding: 200px;
+    margin-left: -100px;
+    margin-bottom: 100px;
+  
+}
+
+.left-panel h1 {
+    font-size: 36px;
+    margin: 0;
+    font-family: "Century Gothic", sans-serif;
+}
+
+#search {
+    width: 150%; /* Растягиваем на всю ширину родительского контейнера */
+    max-width: 6000px; /* Устанавливаем максимальную ширину */
+    padding: 40px; /* Увеличиваем внутренний отступ (делает поле выше) */
+    font-size: 30px; /* Увеличиваем размер текста */
+    border-radius: 30px; /* Закругляем углы */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Легкий контур */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 105);
+    
+    
+}
+
+
+.search-results {
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.result-item {
+    padding: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    font-family: "Century Gothic", sans-serif;
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.right-panel {
+    width: 60%;
+    padding: 70px;
+    background: linear-gradient(135deg, rgba(13, 5, 29, 0.15), rgba(49, 9, 156, 0.05)); /* Градиент */
+    border-radius: 16px;
+    text-align: center;
+    backdrop-filter: blur(100px); 
+    -webkit-backdrop-filter: blur(10px); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    transform: translateX(20%);
+    border-radius: 50px;
+}
+
+
+
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-family: "Century Gothic", sans-serif;
+}
+
+.imdb {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Century Gothic", sans-serif;
+}
+
+.description {
+    font-size: 20px;
+    margin-top: 10px;
+    
+    font-family: "Century Gothic", sans-serif;
+    text-align: left;
+}
+
+.nav-buttons {
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly; /* Кнопки равномерно распределены */
+    width: 120%; /* Растягиваем контейнер */
+    margin-top: 20px;
+    margin-left: 1000px;
+}
+
+
+button {
+    background: white;
+    color: #16213e;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Century Gothic", sans-serif;
+}
+
+.films {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 100px;
+    margin: 0;
+    font-weight: bolder;
+    font-family: "Montserrat", sans-serif;
+}
+
+.movie-name{
+    font-size: 50px;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+}
