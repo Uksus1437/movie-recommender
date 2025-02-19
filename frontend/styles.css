@@ -96,9 +96,9 @@ body {
 .nav-buttons {
     position: fixed;
     top: 50%;                       /* По вертикали по центру экрана */
-    left: 200px;                     /* Отступ слева */
+    left: 1055px;                     /* Отступ слева */
     right: 20px;                    /* Отступ справа */
-    transform: translateX(-50%);    /* Центрируем по вертикали */
+    transform: translateY(-50%);    /* Центрируем по вертикали */
     display: flex;
     justify-content: space-between; /* Кнопка слева и кнопка справа */
     align-items: center;
