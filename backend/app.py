@@ -2,8 +2,10 @@ from flask import Flask, request, jsonify
 from scipy.sparse import load_npz
 import pandas as pd
 import joblib 
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app) 
 
 combined_matrix = load_npz("data/combined_matrix.npz")
 processed_data = pd.read_csv("data/final_process_data.csv")
@@ -34,7 +36,7 @@ def search_movies():
 
     matches = processed_data[processed_data["title"].str.lower().str.contains(query)]
 
-    results = matches[["title"]].head(10).copy()
+    results = matches[["title"]].head(7).copy()
     results["index"] = results.index
 
     return jsonify(results.to_dict(orient="records"))
