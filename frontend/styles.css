@@ -1,122 +1,109 @@
+/* Подключаем шрифты */
 @import url('https://fonts.googleapis.com/css2?family=Century+Gothic&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 
+/* Базовые стили body и фон */
 body {
     margin: 0;
     padding: 0;
     font-family: "Century Gothic", sans-serif;
-    background-image: url('img/back.png');
+    background-image: url('img/back.png'); /* Путь к твоему фоновому изображению */
+    background-size: cover;
+    background-position: center;
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     position: relative;
     overflow-x: hidden;
+    min-height: 100vh; /* Чтобы фон занимал всю высоту экрана */
 }
 
-.container {
-    display: flex;
-    width: 80%;
-    max-width: 1000px;
-}
-
-.left-panel {
-    width: 40%;
-    padding: 200px;
-    margin-left: -100px;
-    margin-bottom: 200px;
-    
-  
-}
-
-.left-panel h1 {
-    font-size: 36px;
+/* Заголовок "Фильмы" — в левом верхнем углу */
+.films {
+    font-size: 100px;
     margin: 0;
-    font-family: "Century Gothic", sans-serif;
+    font-weight: bolder;
+    font-family: "Montserrat", sans-serif;
 }
 
+/* Основной контейнер для левой и правой панелей */
+.container {
+    display: flex;                   /* Выстраиваем панели в ряд */
+    justify-content: space-between;  /* Прижимаем к краям */
+    align-items: flex-start;         /* Выравниваем по верхней границе */
+    width: 100%;
+    margin-top: 100px;               /* Отступ сверху (можно менять) */
+    box-sizing: border-box;
+}
+
+/* Левая панель (поиск) */
+.left-panel {
+    width: 35%; 
+    padding: 20px;
+    box-sizing: border-box;
+    margin-left: 50px;
+}
+
+/* Поле ввода поиска */
 #search {
-    width: 150%; /* Растягиваем на всю ширину родительского контейнера */
-    max-width: 6000px; /* Устанавливаем максимальную ширину */
-    padding: 40px; /* Увеличиваем внутренний отступ (делает поле выше) */
-    font-size: 30px; /* Увеличиваем размер текста */
-    border-radius: 30px; /* Закругляем углы */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Легкий контур */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 105);
-    
-    
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+    font-size: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    outline: none;
+    margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
-
+/* Окно результатов поиска */
 .search-results {
-    margin-top: 10px;
     background: rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    padding: 15px;
-    display: none;
-    position: fixed;
-    width: 32.5%;
-    border-radius: 30px; /* Закругляем углы */
-    
+    padding: 10px;
+    border-radius: 20px;
+    display: none;      /* По умолчанию скрыто */
+    width: 95%;         
+    box-sizing: border-box;
 }
 
 .result-item {
-    padding: 15px;
+    padding: 10px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     cursor: pointer;
-    font-family: "Century Gothic", sans-serif;
 }
-
 .result-item:last-child {
     border-bottom: none;
 }
 
+/* Правая панель (рекомендации) */
 .right-panel {
-    width: 60%;
-    padding: 70px;
-    background: linear-gradient(135deg, rgba(13, 5, 29, 0.15), rgba(49, 9, 156, 0.05)); /* Градиент */
-    border-radius: 16px;
+    width: 35%; 
+    padding: 30px;
+    border-radius: 30px;
     text-align: center;
-    backdrop-filter: blur(100px); 
-    -webkit-backdrop-filter: blur(10px); 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
-    transform: translateX(20%);
-    border-radius: 50px;
-}
-
-
-
-
-h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-    font-family: "Century Gothic", sans-serif;
-}
-
-.imdb {
-    font-size: 18px;
-    font-weight: bold;
-    font-family: "Century Gothic", sans-serif;
-}
-
-.description {
-    font-size: 20px;
-    margin-top: 10px;
+    box-sizing: border-box;
+    margin-right: 100px;
     
-    font-family: "Century Gothic", sans-serif;
-    text-align: left;
+    /* Стеклянный эффект + легкий градиент */
+    background: linear-gradient(135deg, rgba(13, 5, 29, 0.15), rgba(49, 9, 156, 0.05));
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
 }
 
+/* Кнопки прокрутки (← / →) 
+   Зафиксируем их поверх страницы, слева и справа */
 .nav-buttons {
-    position: absolute;
+    position: fixed;
+    top: 50%;                       /* По вертикали по центру экрана */
+    left: 1055px;                     /* Отступ слева */
+    right: 20px;                    /* Отступ справа */
+    transform: translateY(-50%);    /* Центрируем по вертикали */
     display: flex;
-    justify-content: space-evenly; /* Кнопки равномерно распределены */
-    width: 120%; /* Растягиваем контейнер */
-    margin-top: 20px;
-    margin-left: 1000px;
+    justify-content: space-between; /* Кнопка слева и кнопка справа */
+    align-items: center;
+    z-index: 999;                   /* Чтобы кнопки были выше прочего контента */
 }
-
 
 button {
     background: white;
@@ -129,18 +116,37 @@ button {
     font-family: "Century Gothic", sans-serif;
 }
 
-.films {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 100px;
-    margin: 0;
-    font-weight: bolder;
+/* Анимация появления */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.fade-in {
+    animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+/* Текст внутри правой панели */
+.movie-name {
+    font-size: 36px;
+    font-weight: bold;
     font-family: "Montserrat", sans-serif;
 }
 
-.movie-name{
-    font-size: 50px;
+.imdb {
+    font-size: 18px;
     font-weight: bold;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Century Gothic", sans-serif;
+}
+
+.description {
+    font-size: 20px;
+    margin-top: 10px;
+    font-family: "Century Gothic", sans-serif;
+    text-align: left;
 }
