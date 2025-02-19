@@ -1,37 +1,33 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>КиноРекомендации</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>КиноРекомендации</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1 class="films">Фильмы</h1>
-    <div class="container">
+  <h1 class="films">Фильмы</h1>
+
+  <div class="container">
+    <!-- Левая панель -->
     <div class="left-panel">
-        <input type="text" id="search" placeholder="Поиск...">
-        <div class="search-results" id="results">
-        </div>
-    </div>
-</div>
-    <div class="container">
-        <div class="right-panel">
-            <h2 class="movie-name" id="movie-title">Мстители</h2>
-            <p class="imdb">IMDb: <span id="imdb-rating">7.9</span></p>
-            <p class="description">
-            </p>
-
-            
-        </div>
-        
-    </div>
-    <div class="nav-buttons">
-        <button id="prev">&#8592;</button>
-        <button id="next">&#8594;</button>
+      <input type="text" id="search" placeholder="Поиск...">
+      <div class="search-results" id="results"></div>
     </div>
 
-<script src="script.js"></script>
+    <!-- Правая панель -->
+    <div class="right-panel">
+      <!-- Кнопки прокрутки (← / →) -->
+      <button class="prev" id="prev">&#8592;</button>
+      <button class="next" id="next">&#8594;</button>
 
+      <h2 class="movie-name" id="movie-title">Мстители</h2>
+      <p class="imdb">IMDb: <span id="imdb-rating">7.9</span></p>
+      <p class="description"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
