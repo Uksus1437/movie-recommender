@@ -36,7 +36,7 @@ def search_movies():
 
     matches = processed_data[processed_data["title"].str.lower().str.contains(query)]
 
-    results = matches[["title"]].head(7).copy()
+    results = matches[["title"]].head(20).copy()
     results["index"] = results.index
 
     return jsonify(results.to_dict(orient="records"))
