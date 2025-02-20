@@ -123,31 +123,70 @@ body {
     position: absolute; 
     top: 50%;                
     transform: translateY(-50%); /* Центрируем по вертикали */
-  
     /* Растянем контейнер кнопок на всю ширину .right-panel-wrapper */
     left: -80px;
     right: -80px;
-  
     /* display:flex и space-between раздвигает кнопки влево/вправо */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-sizing: border-box;
-    pointer-events: auto;
     z-index: 999;
+    
   }
 
   .nav-buttons button {
-    background: white;
-    color: #16213e;
-    border: none;
-    padding: 10px 20px;
-    font-size: 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-family: "Century Gothic", sans-serif;
-  }
+    width: 60px;             
+    height: 60px;            
+    border-radius: 50%;      /* Делаем кнопку круглой */
+    border: 2px solid white; /* Тонкий белый контур */
+    background: transparent; /* Изначально прозрачная */
   
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); /* Тень */
+    transition: 
+        background 0.3s ease, 
+        box-shadow 0.3s ease, 
+        transform 0.2s ease, 
+        color 0.3s ease;
+}
+.nav-buttons button:hover {
+    background: linear-gradient(to bottom, #f8f8f8, #d6d6d6); /* Светлее */
+    color: #000; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Увеличенная тень */
+}
+/* Анимация пульсации при клике */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1.15); }
+    75% { transform: scale(1.2); }
+    100% { transform: scale(1.25); }
+}
+
+/* Применяем анимацию при клике */
+.nav-buttons button:active {
+    animation: pulse 0.2s ease-in-out;
+}
+
+.nav-buttons button:disabled {
+    opacity: 0.3;    /* Делаем кнопку полупрозрачной */
+    transform: none;  /* Убираем анимацию увеличения */
+}
+
+/* Отключаем пульсацию для заблокированной кнопки */
+.nav-buttons button:disabled:active {
+    animation: none;
+}
+
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
