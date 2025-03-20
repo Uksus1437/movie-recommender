@@ -1,8 +1,8 @@
 import requests
 import pandas as pd
 
-url_recommend = "http://127.0.0.1:5000/recommend"
-processed_data = pd.read_csv("data/final_process_data.csv")
+# url_recommend = "http://127.0.0.1:5000/recommend"
+# processed_data = pd.read_csv("data/final_process_data.csv")
 
 # movie = '«Чудотворец» из Бирюлёва'
 
@@ -16,18 +16,27 @@ processed_data = pd.read_csv("data/final_process_data.csv")
 # print("Рекомендации:", data["recommended_movies"])
 
 
-url_search = "http://127.0.0.1:5000/search"
+# url_search = "http://127.0.0.1:5000/search"
 
-query = 'из'
-params = {"query": query}
+# query = 'из'
+# params = {"query": query}
 
-response = requests.get(url_search, params=params)
+# response = requests.get(url_search, params=params)
 
 
-if response.status_code == 200:
-    data = response.json()
-    print("Найденные фильмы:")
-    for movie in data:
-        print(f"{movie['index']}: {movie['title']}")
-else:
-    print("Ошибка:", response.status_code)
+# if response.status_code == 200:
+#     data = response.json()
+#     print("Найденные фильмы:")
+#     for movie in data:
+#         print(f"{movie['index']}: {movie['title']}")
+# else:
+#     print("Ошибка:", response.status_code)
+
+
+params = {
+    "movie_id": 96,
+    "top_n": 10,
+    "genres": "Исторический,Спортивный"
+}
+response = requests.get("http://127.0.0.1:5000/recommend", params=params)
+print(response.json())
