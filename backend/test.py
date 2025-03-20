@@ -36,7 +36,9 @@ import pandas as pd
 params = {
     "movie_id": 96,
     "top_n": 10,
-    "genres": "Исторический,Спортивный"
+    "genres": "Исторический,Спортивный",
+    "min_rating": 7.1,
+    "max_rating": 8.0
 }
 response = requests.get("http://127.0.0.1:5000/recommend", params=params)
 print(response.json())
